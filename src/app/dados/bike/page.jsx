@@ -33,12 +33,12 @@ function recolherDados(){
         <nav className="navegacao">
             <div>
                 <Link  href="/dados/cliente">
-                    <button className="botao-voltar">voltar</button>
+                    <button className="botao-telas">voltar</button>
                 </Link>    
             </div>
             <div>
                 <Link href="/dados/fotos">
-                    <button onClick="" className="botao-avancar">avançar</button>
+                    <button onClick="" className="botao-telas">avançar</button>
                 </Link>
             </div>
         </nav>   

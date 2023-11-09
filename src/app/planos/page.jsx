@@ -69,12 +69,12 @@ export default function index() {
     <nav className="navegacao">
         <div>
             <Link href="/dados/fotos">
-                <button className="botao-voltar">voltar</button>
+                <button className="botao-telas">voltar</button>
             </Link>    
         </div>
         <div>
             <Link href="/planos/confirmacao" >
-                <button  className="botao-avancar">avançar</button>
+                <button  className="botao-telas">avançar</button>
                 {/* onClick={escolhePlano} */}
             </Link>
         </div>

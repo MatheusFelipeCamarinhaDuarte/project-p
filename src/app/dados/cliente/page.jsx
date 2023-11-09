@@ -40,12 +40,14 @@ export default function page() {
         <nav className="navegacao">
             <div>
                 <Link href="/">
-                <button className="botao-voltar">voltar</button>
+                <button className="botao-telas">
+                    <span>voltar</span>
+                </button>
                 </Link>
             </div>
             <div>
                 <Link href="/dados/bike">
-                <button className="botao-avancar" onClick="">avançar</button>
+                    <button  className="botao-telas" onClick="">avançar</button>
                 </Link>
             </div>
         </nav>

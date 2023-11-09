@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { global } from 'styled-jsx/css'
 
 export default function Home() {
   return (
@@ -44,11 +45,11 @@ export default function Home() {
             </div>
         </div>
 
-        <div className='vistoria'>
-          <button className="botao-vistoria">
+        <nav className='vistoria'>
+          <button className="botao-telas">
             <Link className='texto-vistoria' href='/dados/cliente'>Realizar vistoria</Link>
           </button>
-        </div>
+        </nav>
 
       </div>
     </div>

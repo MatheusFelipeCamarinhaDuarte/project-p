@@ -95,16 +95,16 @@ export default function index() {
             </fieldset>
         </nav>
         <nav className="navegacao">
-            <nav>
+            <div>
                 <Link href='/dados/bike'>
-                    <button className="botao-voltar">voltar</button>
+                    <button className="botao-telas">voltar</button>
                 </Link>    
-            </nav>
-            <nav>
+            </div>
+            <div>
                 <Link href='/planos'>
-                    <button  className="botao-avancar">avançar</button>
+                    <button  className="botao-telas">avançar</button>
                 </Link>
-            </nav>
+            </div>
         </nav>
     </main>
     )
