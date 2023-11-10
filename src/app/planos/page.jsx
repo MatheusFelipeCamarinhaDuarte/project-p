@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 // function escolhePlano(){
 //     let inputPlano = document.getElementById("opcaoSelecionada")
@@ -20,7 +21,7 @@ export default function index() {
 <div className='planos'>
         <div className='plano'>
           <h2 className='titulo-plano'>Pedal Essencial</h2> 
-          <img src="/images/pedal-essencial.jpg" alt="Cara pedalando" width={250} />
+          <Image src="/images/pedal-essencial.jpg" alt="Cara pedalando" width={600} height={500} />
           <div className='beneficios'>
             <h3>Benefícios</h3>
             <ul>
@@ -32,7 +33,7 @@ export default function index() {
 
         <div className='plano'>
           <h2 className='titulo-plano'>Pedal Leve</h2>
-          <img src="/images/pedal-leve.jpg" alt="Cara pedalando" width={250} />
+          <Image src="/images/pedal-leve.jpg" alt="Cara pedalando" width={600} height={500} />
           <div className='beneficios'>
             <h3>Benefícios</h3>
               <ul>
@@ -46,7 +47,7 @@ export default function index() {
 
         <div className='plano'>
             <h2 className='titulo-plano'>Pedal Elite</h2>
-            <img src="/images/pedal-elite.jpg" alt="Cara pedalando" width={250} />
+            <Image src="/images/pedal-elite.jpg" alt="Cara pedalando" width={600} height={500}/>
             <div className='beneficios'>
               <h3>Benefícios</h3>
               <ul>

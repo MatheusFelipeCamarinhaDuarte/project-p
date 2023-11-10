@@ -4,11 +4,6 @@ import React from 'react';
 export default function Home() {
 
 
-  
-
-
-
-
   return (
     <div className='fundo-pagina'>
 
@@ -23,7 +18,7 @@ export default function Home() {
             </div>
           </div>
           <div class='flex items-center'>
-            <img class="rounded" src="/images/ciclista-topo.jpg" alt="Imagem de ciclista andando por uma rodovia arborizada" width={600}/>
+            <Image class="rounded" src="/images/ciclista-topo.jpg" alt="Imagem de ciclista andando por uma rodovia arborizada" width={600} height={500}/>
           </div>
         </div>
       </div>
@@ -34,7 +29,7 @@ export default function Home() {
       <div className='planos'>
       
         <div className='plano'>
-          <img src="/images/pedal-essencial.jpg" alt="Cara pedalando"/>
+          <Image src="/images/pedal-essencial.jpg" alt="Cara pedalando" width={600} height={500}/>
           <h2>Pedal Essencial</h2> 
           <div>
             <h3>O plano gratuito para você experimentar um dos serviços essenciais oferecidos, de acordo com as suas necessidades.</h3>
@@ -42,7 +37,7 @@ export default function Home() {
           <button id='saiba-mais'>Saiba mais</button>
         </div>
         <div className='plano'>
-          <img src="/images/pedal-leve.jpg" alt="Cara pedalando"/>
+          <Image src="/images/pedal-leve.jpg" alt="Cara pedalando" width={600} height={500}/>
           <h2>Pedal Leve</h2>
           <div>
             <h3>Você gosta de pedalar e está buscando um plano de serviços intermediário? O Pedal leve da Porto é para você.</h3>
@@ -51,7 +46,7 @@ export default function Home() {
         </div>
 
         <div className='plano'>
-          <img src="/images/pedal-elite.jpg" alt="Cara pedalando"/>
+          <Image src="/images/pedal-elite.jpg" alt="Cara pedalando" width={600} height={500}/>
           <h2>Pedal Elite</h2>
           <div>
             <h3>Conte com diversos serviços capazes de elevar suas aventuras para o próximo nível.</h3>

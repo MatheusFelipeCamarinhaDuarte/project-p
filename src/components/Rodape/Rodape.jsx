@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from 'next/image';
+
 
 export default function Rodape() {
     return (
@@ -10,7 +12,7 @@ export default function Rodape() {
                     <Link className="" href="/login">Realizar login</Link>
                 </div>
                 <div className="cabecalho-logo">
-                    <img src="/images/locked.png" alt="cadeado" width={50}/>
+                    <Image src="/images/locked.png" alt="cadeado" width={50} height={50} />
                 </div>
             </nav>
         </footer>
