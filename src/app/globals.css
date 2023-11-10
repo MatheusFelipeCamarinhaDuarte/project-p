@@ -7,17 +7,18 @@
   .cabecalho{
     @apply bg-gray-300 flex justify-between p-4
   }
+  .cabecalho :first-child{
+    @apply flex max-md:flex-row items-center
+  }
   .cabecalho div{
-    @apply flex items-center gap-16
+    @apply flex items-center gap-16 max-lg:gap-2 max-md:flex-col max-md:items-end
   }
-  .cabecalho div span{
-    @apply gap-3
-  }
-  .cabecalho div Link{
-    @apply text-violet-500
+  .cabecalho-links {
+    font-family: "Porto Roobert";
+    @apply text-3xl underline
   }
   .cabecalho div p{
-    @apply font-serif text-blue-600
+    @apply font-serif text-blue-600 text-5xl
   }
 
 
@@ -31,7 +32,11 @@
     @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl
   }
   .navegacao {
-    @apply flex 
+    @apply flex flex-row justify-around
+  }
+  .navegacao div button{
+    border-radius: 20px;
+    @apply flex h-24 items-center hover:shadow-2xl transition-all duration-300 hover:scale-110 justify-center
   }
 
 
