@@ -13,7 +13,8 @@ function recolherDados(){
   
   export default function index() {
     return (
-    <main className='dados'>
+    <main>
+    <div className='fundo-pagina'>
         <fieldset className="form-bike">
             <legend>Dados da Bike</legend>
             <div>
@@ -29,7 +30,7 @@ function recolherDados(){
                 <input className='campo-form' type="text" name="Valor" id="idValor" placeholder="Digite seu Valor TOTAL da sua bike" required/>
             </div>
         </fieldset>
-        
+        </div>
         <nav className="navegacao">
             <div>
                 <Link  href="/dados/cliente">

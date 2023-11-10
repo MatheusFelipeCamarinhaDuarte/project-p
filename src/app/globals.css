@@ -29,10 +29,10 @@
   }
   .botao-telas{
     font-family: 'Open Sans', sans-serif;
-    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl
+    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl 
   }
   .navegacao {
-    @apply flex flex-row justify-around
+    @apply flex flex-row justify-around 
   }
   .navegacao div button{
     border-radius: 20px;

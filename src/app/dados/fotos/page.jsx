@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function index() {
     return (
-    <main className='fotos'>
+    <main className='fundo-pagina'>
         <nav className='form-fotos'>
             <fieldset>
                 <legend className='titulo-fotos'>Fotos</legend>

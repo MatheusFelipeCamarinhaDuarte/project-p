@@ -16,7 +16,7 @@ export default function index() {
     //   const [modelo, num, valor] = infoBike;
 
     return (
-    <main className='confirmacao'>
+    <main className='fundo-pagina'>
         <div className="form-confirm">
             <legend className="titulo-confirm">Confirme as seguintes informações</legend>
             <nav>

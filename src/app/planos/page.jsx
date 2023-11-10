@@ -17,7 +17,7 @@ export default function index() {
 
 
     return (
-<main className='home'>
+<main className='fundo-pagina'>
 <div className='planos'>
         <div className='plano'>
           <h2 className='titulo-plano'>Pedal Essencial</h2> 

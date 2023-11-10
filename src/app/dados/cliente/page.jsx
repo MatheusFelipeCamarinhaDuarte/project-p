@@ -16,7 +16,7 @@ function recolherDados(){
 
 export default function page() {
   return (
-    <main className='dados'>
+    <main className='fundo-pagina'>
         <div className="formulario">
             <legend className="titulo-cliente">Seus dados</legend>
             <nav className= "form-cliente">
