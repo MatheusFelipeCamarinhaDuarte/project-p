@@ -11,7 +11,7 @@ export default function index() {
                 <div className='superior'>
                     <nav className="quadro">
                         <nav>
-                            <img className='img-quadro'/>
+                            {/* <img className='img-quadro'/> */}
                             {/* 100px por 80px */}
                             <p>Foto do Quadro</p>
                         </nav>
@@ -21,7 +21,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-num'/>
+                            {/* <img  className='img-num'/> */}
                             {/* 80px por 80px */}
                             <p>Nº de série</p>
                         </nav>
@@ -31,7 +31,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-roda-tras'/>
+                            {/* <img  className='img-roda-tras'/> */}
                             {/* 60px por 72px */}
                             <p>Roda traseira</p>
                         </nav>
@@ -41,7 +41,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-roda-frente'/>
+                            {/* <img  className='img-roda-frente'/> */}
                             {/* 60px por 72px */}
                             <p>Roda frontal</p>
                         </nav>
@@ -53,7 +53,7 @@ export default function index() {
             <div className='inferior'>
                     <nav className="quadro">
                         <nav>
-                            <img className='img-frente-tras'/>
+                            {/* <img className='img-frente-tras'/> */}
                             {/* 70px por 72px */}
                             <p>Foto frontal</p>
                         </nav>
@@ -63,7 +63,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-lateral'/>
+                            {/* <img  className='img-lateral'/> */}
                             {/* 100px por 72px */}
                             <p>Foto Lateral</p>
                         </nav>
@@ -73,7 +73,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-frente-tras'/>
+                            {/* <img  className='img-frente-tras'/> */}
                             {/* 70px por 72px */}
                             <p>Foto Traseira</p>
                         </nav>
@@ -83,7 +83,7 @@ export default function index() {
                     </nav>
                     <nav className="quadro">
                         <nav>
-                            <img  className='img-acessorios'/>
+                            {/* <img  className='img-acessorios'/> */}
                             {/* 124px por 72px */}
                             <p>Acessórios</p>
                         </nav>
