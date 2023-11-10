@@ -17,7 +17,8 @@ export default function index() {
 
 
     return (
-<main className='fundo-pagina'>
+<main>
+<div className='fundo-pagina'>
 <div className='planos'>
         <div className='plano'>
           <h2 className='titulo-plano'>Pedal Essencial</h2> 
@@ -67,6 +68,7 @@ export default function index() {
             <option value="Plano Leve">Plano Leve</option>
             <option value="Plano Elite">Plano Elite</option>
         </select>
+    </div>
     <nav className="navegacao">
         <div>
             <Link href="/dados/fotos">

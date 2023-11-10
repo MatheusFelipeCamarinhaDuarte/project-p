@@ -1,11 +1,20 @@
-import Image from 'next/image'
-import Link from 'next/link'
+"use client"
+import { useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 export default function Home() {
 
-    function abrirModal(){
-      
-    }
+
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  const abrirModal = () => {
+    setMostrarModal(true);
+  };
+
+  const fecharModal = () => {
+    setMostrarModal(false);
+  };
 
   return (
     <div className='fundo-pagina'>
@@ -28,6 +37,14 @@ export default function Home() {
       
 
 
+      {mostrarModal && (
+              <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+              <div className="modal-container bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2">
+                <button onClick={() => setMostrarModal(false)}>Fechar</button>
+                <p>Conteúdo do Modal</p>
+              </div>
+            </div>
+            )}
 
       <div className='planos'>
       
@@ -37,7 +54,7 @@ export default function Home() {
           <div>
             <h3>O plano gratuito para você experimentar um dos serviços essenciais oferecidos, de acordo com as suas necessidades.</h3>
           </div>
-          <button id='saiba-mais'>Saiba mais</button>
+          <button id='saiba-mais' onClick={abrirModal}>Saiba mais</button>
         </div>
         <div className='plano'>
           <Image src="/images/pedal-leve.jpg" alt="Cara pedalando" width={600} height={500}/>
@@ -45,7 +62,7 @@ export default function Home() {
           <div>
             <h3>Você gosta de pedalar e está buscando um plano de serviços intermediário? O Pedal leve da Porto é para você.</h3>
           </div>
-          <button id='saiba-mais'>Saiba mais</button>
+          <button id='saiba-mais' onClick={abrirModal}>Saiba mais</button>
         </div>
 
         <div className='plano'>
@@ -54,7 +71,7 @@ export default function Home() {
           <div>
             <h3>Conte com diversos serviços capazes de elevar suas aventuras para o próximo nível.</h3>
           </div>
-          <button id='saiba-mais'>Saiba mais</button>
+          <button id='saiba-mais' onClick={abrirModal}>Saiba mais</button>
         </div>
       </div>
 

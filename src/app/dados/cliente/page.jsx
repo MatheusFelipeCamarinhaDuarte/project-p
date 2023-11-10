@@ -16,27 +16,26 @@ function recolherDados(){
 
 export default function page() {
   return (
-    <main className='fundo-pagina'>
-        <div className="formulario">
-            <legend className="titulo-cliente">Seus dados</legend>
-            <nav className= "form-cliente">
-                <div>
-
-                    <label className="text-form">Nome</label>
-                    <input className='campo-form' type="text" name="nome" id="idNome" placeholder="Digite seu nome" required />
-                </div>
-                <div>
-                    <label className="text-form">CPF</label>
-                    <input className='campo-form'  type="text" name="CPF" id="idCPF" placeholder="Digite seu CPF" required/>
-                </div>
-                <div>
-                    <label for="idTelefone">Telefone</label>
-                    <input type="text" name="Telefone" id="idTelefone" placeholder="Digite seu telefone" required/>
-
-                </div>
-            </nav>
-        </div>
-
+    <main>
+        <div className='fundo-pagina'>
+            <form className="formulario">
+                <legend className="titulo-dados">Seus dados</legend>
+                <nav className= "form-cliente">
+                    <fieldset className='m-4'>
+                        <legend className="text-form">Nome</legend>
+                        <input className='campo-form' type="text" name="nome" id="idNome" placeholder="Digite seu nome" required />
+                    </fieldset>
+                    <fieldset className='m-4'>
+                        <legend className="text-form">CPF</legend>
+                        <input className='campo-form'  type="text" name="CPF" id="idCPF" placeholder="Digite seu CPF" required/>
+                    </fieldset>
+                    <fieldset className='m-4'>
+                        <legend className='text-form'>Telefone</legend>
+                        <input className='campo-form' type="text" name="Telefone" id="idTelefone" placeholder="Digite seu telefone" required/>
+                    </fieldset>
+                </nav>
+            </form>
+       </div>
         <nav className="navegacao">
             <div>
                 <Link href="/">

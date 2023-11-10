@@ -4,8 +4,9 @@ import Link from "next/link";
 
 export default function index() {
     return (
-    <main className='fundo-pagina'>
-        <nav className='form-fotos'>
+    <main>
+    <div className='fundo-pagina'>
+        <form className='formulario'>
             <fieldset>
                 <legend className='titulo-fotos'>Fotos</legend>
                 <div className='superior'>
@@ -93,7 +94,8 @@ export default function index() {
                     </nav>
                     </div>
             </fieldset>
-        </nav>
+        </form>
+        </div>
         <nav className="navegacao">
             <div>
                 <Link href='/dados/bike'>

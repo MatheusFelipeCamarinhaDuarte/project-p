@@ -16,52 +16,54 @@ export default function index() {
     //   const [modelo, num, valor] = infoBike;
 
     return (
-    <main className='fundo-pagina'>
-        <div className="form-confirm">
-            <legend className="titulo-confirm">Confirme as seguintes informações</legend>
-            <nav>
-                <nav>   
-                    <h3 className="titulo-info">Nome</h3>
-                    <div>
-                        <p  className="info" id='idInfoNome'>Nome</p>
-                        {/* {nome} */}
-                    </div>
-                    <h3 className="titulo-info">CPF</h3>
-                    <div>
-                        <p  className="info" id='idInfoCPF'>CPF</p>
-                        {/* {cpf} */}
-                    </div>
-                    <h3 className="titulo-info">Telefone</h3>
-                    <div>
-                        <p  className="info" id='idInforTelefone'>Telefone</p>
-                        {/* {telefone} */}
-                    </div>
-                </nav>
+    <main>
+        <div className='fundo-pagina'>
+            <div className="form-confirm">
+                <legend className="titulo-confirm">Confirme as seguintes informações</legend>
                 <nav>
-                    <div>
-                        <h3 className="titulo-info">Modelo</h3>
-                        <p  className="info">Modelo</p>
-                        {/* {modelo} */}
-                    </div>
-                    <div>
-                        <h3 className="titulo-info">Nº de Série</h3>
-                        <p  className="info">num</p>
-                        {/* {num} */}
-                    </div>
-                    <div>
-                        <h3 className="titulo-info">Preço</h3>
-                        <p  className="info">valor</p>
-                        {/* {valor} */}
-                    </div>
+                    <nav>   
+                        <h3 className="titulo-info">Nome</h3>
+                        <div>
+                            <p  className="info" id='idInfoNome'>Nome</p>
+                            {/* {nome} */}
+                        </div>
+                        <h3 className="titulo-info">CPF</h3>
+                        <div>
+                            <p  className="info" id='idInfoCPF'>CPF</p>
+                            {/* {cpf} */}
+                        </div>
+                        <h3 className="titulo-info">Telefone</h3>
+                        <div>
+                            <p  className="info" id='idInforTelefone'>Telefone</p>
+                            {/* {telefone} */}
+                        </div>
+                    </nav>
+                    <nav>
+                        <div>
+                            <h3 className="titulo-info">Modelo</h3>
+                            <p  className="info">Modelo</p>
+                            {/* {modelo} */}
+                        </div>
+                        <div>
+                            <h3 className="titulo-info">Nº de Série</h3>
+                            <p  className="info">num</p>
+                            {/* {num} */}
+                        </div>
+                        <div>
+                            <h3 className="titulo-info">Preço</h3>
+                            <p  className="info">valor</p>
+                            {/* {valor} */}
+                        </div>
+                    </nav>
+                    <nav>
+                        <div>
+                            <h3 className="titulo-info">Plano</h3>
+                            <p className="info">plano</p>
+                            {/* {plano} */}
+                        </div>
+                    </nav>
                 </nav>
-                <nav>
-                    <div>
-                        <h3 className="titulo-info">Plano</h3>
-                        <p className="info">plano</p>
-                        {/* {plano} */}
-                    </div>
-                </nav>
-            </nav>
+            </div>
         </div>
         <nav className="navegacao">
             <div>

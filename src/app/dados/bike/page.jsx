@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 
 function recolherDados(){
@@ -14,23 +15,24 @@ function recolherDados(){
   export default function index() {
     return (
     <main>
-    <div className='fundo-pagina'>
-        <fieldset className="form-bike">
-            <legend>Dados da Bike</legend>
-            <div>
-                <label for="idModelo">Modelo</label>
-                <input type="text" name="Modelo" id="idModelo" placeholder="Digite seu Modelo de bike" required />
+        <div className='fundo-pagina'>
+            <form className="formulario">
+                <legend className="titulo-dados">Dados da Bike</legend>
+                <fieldset>
+                    <legend className='text-form' for="idModelo">Modelo</legend>
+                    <input className='campo-form' type="text" name="Modelo" id="idModelo" placeholder="Digite seu Modelo de bike" required />
+                </fieldset>
+                <fieldset>
+                    <legend className='text-form' for="idNSerie">Nº de Série</legend>
+                    <input className='campo-form' type="text" name="NSerie" id="idNSerie" placeholder="Digite seu Nº Série" required/>
+                </fieldset>
+                <fieldset>
+                    <legend className="text-form" for="idValor">Valor</legend>
+                    <input className='campo-form' type="text" name="Valor" id="idValor" placeholder="Digite seu Valor TOTAL da sua bike" required/>
+                </fieldset>
+            </form>
             </div>
-            <div>
-                <label for="idNSerie">Nº de Série</label>
-                <input type="text" name="NSerie" id="idNSerie" placeholder="Digite seu Nº Série" required/>
-            </div>
-            <div>
-                <label className="text-form" for="idValor">Valor</label>
-                <input className='campo-form' type="text" name="Valor" id="idValor" placeholder="Digite seu Valor TOTAL da sua bike" required/>
-            </div>
-        </fieldset>
-        </div>
+
         <nav className="navegacao">
             <div>
                 <Link  href="/dados/cliente">

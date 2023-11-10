@@ -7,7 +7,7 @@ export default function Cabecalho() {
         <header className="">
             <nav className="cabecalho">
                 <div className="cabecalho-logo">
-                    <Image src="/images/locked.png" alt="cadeado" width={50} height={50}/>
+                    <Image src="/images/icones/locked.png" alt="cadeado" width={50} height={50}/>
                     <p>PROJECT-P</p>
                 </div>
                 <div className="cabecalho-links">
