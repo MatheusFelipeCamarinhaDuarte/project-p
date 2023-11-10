@@ -13,7 +13,6 @@ export default function Cabecalho() {
                     <Link className="link-cabecalho" href="/"><span>Home</span></Link>
                     <Link className="link-cabecalho" href="/sobre"><span>Sobre nós</span></Link>
                     <Link className="link-cabecalho" href="/login"><span>Realizar login</span></Link>
-                    <Link className="link-cabecalho" href="/login/cadastro"><span>Cadastrar-se</span></Link>
                 </div>
             </nav>
         </header>

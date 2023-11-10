@@ -89,7 +89,7 @@
   }
   .vistoria button{
     border-radius: 20px;
-    @apply flex h-24 items-center hover:shadow-2xl hover:scale-110
+    @apply flex h-24 items-center hover:shadow-2xl transition-all duration-300 hover:scale-110
   }
 
   
