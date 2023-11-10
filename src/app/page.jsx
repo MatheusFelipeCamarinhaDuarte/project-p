@@ -1,17 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { document } from 'postcss'
-import { global } from 'styled-jsx/css'
-import{ useClient } from 'next/client';
 import React from 'react';
-import {useState} from "react";
 export default function Home() {
-  useClient() 
 
 
   
 
-  const [open, setOpen] = useState(false);
 
 
 
@@ -35,15 +29,7 @@ export default function Home() {
       </div>
       
 
-      {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
 
-      <Link onClick={()=> setOpen(true)}>Saiba mais</Link>
-
-    {/* <div id="modal" class="hidden">
-        <div class="bg-white-100 h-4/5 m-24 p-5">
-
-        </div>
-    </div> */}
 
       <div className='planos'>
       

@@ -8,7 +8,6 @@ export default function Rodape() {
                     <Link className="" href="/">Home</Link>
                     <Link className="" href="/sobre">Sobre nós</Link>
                     <Link className="" href="/login">Realizar login</Link>
-                    <Link className="" href="/login/cadastro">Cadastrar-se</Link>
                 </div>
                 <div className="cabecalho-logo">
                     <img src="/images/locked.png" alt="cadeado" width={50}/>
