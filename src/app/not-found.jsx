@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 
-export default function  () {
+
+
+const NotFound = function() {
     return (
         <div>
             <h1>Error 404 - Página não encontrada</h1>
@@ -9,3 +11,6 @@ export default function  () {
         </div>
     )
 }
+NotFound.displayName = 'NotFound';
+
+export default NotFound;
