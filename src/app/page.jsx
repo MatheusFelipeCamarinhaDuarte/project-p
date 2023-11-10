@@ -1,49 +1,78 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { document } from 'postcss'
 import { global } from 'styled-jsx/css'
-
+import{ useClient } from 'next/client';
+import React from 'react';
+import {useState} from "react";
 export default function Home() {
+  useClient() 
+
+
+  
+
+  const [open, setOpen] = useState(false);
+
+
+
   return (
     <div className='fundo-pagina'>
-      <div className='planos'>
-        <div className='plano'>
-          <img className='imagem-plano' src="" />
-          <h2 className='titulo-plano'>Pedal Essencial</h2> 
-          <div className='beneficios'>
-            <h3>Benefícios</h3>
-            <ul>
-              <li>Reparo de câmaras de ar e reparo ou troca de correntes</li>
-              <li>Substituição ou regulagem de selim e canote de selim, manetes de freios e cabo de aço, freio dianteiro e traseiro</li>
-            </ul>
+
+      <div className='topo-topo'>
+        <div className='topo-chamatriz'>
+          <div>
+            <h1 type="Title2" color="black100" font-style="normal" data-testid="typography-container">Seguro Bike da Porto Seguro</h1>
+            <p class='m-8 text-gray-700 text-xl line-height: 2.8rem font-family: "Porto Roobert" font-weight: 400'>Uma solução completa que oferece proteção e serviços para você se aventurar sem medo.</p>
+            <div>
+              <button className='botao-cote-ja'><span>Cote já</span></button>
+              <div></div>
+            </div>
+          </div>
+          <div class='flex items-center'>
+            <img class="rounded" src="/images/ciclista-topo.jpg" alt="Imagem de ciclista andando por uma rodovia arborizada" width={600}/>
           </div>
         </div>
+      </div>
+      
 
+      {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
+
+      <Link onClick={()=> setOpen(true)}>Saiba mais</Link>
+
+    {/* <div id="modal" class="hidden">
+        <div class="bg-white-100 h-4/5 m-24 p-5">
+
+        </div>
+    </div> */}
+
+      <div className='planos'>
+      
         <div className='plano'>
-          <img className='imagem-plano' src="" />
-          <h2 className='titulo-plano'>Pedal Leve</h2>
-          <div className='beneficios'>
-            <h3>Benefícios</h3>
-            <ul>
-              <li>Benefícios Pedal Essencial</li>
-              <li>Lubrificação de correntes e coroas</li>
-              <li>Transporte do segurado e Bike - limite de 50km, em caso de quebra ou acidente</li>
-            </ul>
-            </div>
+          <img src="/images/pedal-essencial.jpg" alt="Cara pedalando"/>
+          <h2>Pedal Essencial</h2> 
+          <div>
+            <h3>O plano gratuito para você experimentar um dos serviços essenciais oferecidos, de acordo com as suas necessidades.</h3>
+          </div>
+          <button id='saiba-mais'>Saiba mais</button>
+        </div>
+        <div className='plano'>
+          <img src="/images/pedal-leve.jpg" alt="Cara pedalando"/>
+          <h2>Pedal Leve</h2>
+          <div>
+            <h3>Você gosta de pedalar e está buscando um plano de serviços intermediário? O Pedal leve da Porto é para você.</h3>
+          </div>
+          <button id='saiba-mais'>Saiba mais</button>
         </div>
 
         <div className='plano'>
-            <img className='imagem-plano'src="" />
-            <h2 className='titulo-plano'>Pedal Elite</h2>
-            <div className='beneficios'>
-              <h3>Benefícios</h3>
-              <ul>
-                <li>Benefícios Pedal Leve</li>
-                <li>Transporte do segurado e Bike - limite de 150km, em caso de quebra ou acidente </li>
-                <li>Instalação de suporte de parede e chão para bike</li>
-                <li>Serviço de Leva e Traz, com limite de 50km, mediante agendamento prévio</li>
-              </ul>
-            </div>
+          <img src="/images/pedal-elite.jpg" alt="Cara pedalando"/>
+          <h2>Pedal Elite</h2>
+          <div>
+            <h3>Conte com diversos serviços capazes de elevar suas aventuras para o próximo nível.</h3>
+          </div>
+          <button id='saiba-mais'>Saiba mais</button>
         </div>
+      </div>
 
         <nav className='vistoria'>
           <button className="botao-telas">
@@ -51,7 +80,6 @@ export default function Home() {
           </button>
         </nav>
 
-      </div>
     </div>
 
   )

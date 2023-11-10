@@ -17,7 +17,7 @@
     @apply text-violet-500
   }
   .cabecalho div p{
-    @apply font-serif
+    @apply font-serif text-blue-600
   }
 
 
@@ -28,27 +28,69 @@
   }
   .botao-telas{
     font-family: 'Open Sans', sans-serif;
-    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20
+    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl
   }
   .navegacao {
-    @apply flex justify-around
+    @apply flex 
   }
 
 
-
+/* Home e planos */
+  .topo-topo{
+    @apply p-0
+  }
+  .topo-chamatriz{
+    border-radius: 20px;
+    @apply flex flex-row flex-wrap items-center justify-between p-12 gap-12 bg-blue-200 border-t-8  xl:flex-nowrap max-xl:justify-center  border-blue-100 max-xl:rounded max-xl:border-none
+  }
+  .topo-chamatriz div h1{
+    font-family: "Porto Roobert";
+    @apply  flex font-black text-6xl 
+  }
+  .topo-chamatriz div div{
+    @apply flex flex-row justify-between 
+  }
+  .botao-cote-ja {
+    @apply text-xl hover:bg-blue-50 hover:scale-105 hover:shadow-2xl hover:text-blue-950 font-semibold rounded-xl leading-9 tracking-wide transition duration-300 ease-in-out cursor-pointer flex items-center justify-center flex-row bg-blue-600 border-2 border-transparent opacity-100 text-white
+  }
   .planos{
-    @apply flex justify-around p-1
+    @apply flex flex-wrap flex-row items-center gap-12 p-12 xl:flex-nowrap 
   }
-  .planos nav{
-    @apply flex
-  }
-  
-  &li{
-    @apply bg-red-600
+  .planos img{
+    width: 1600px;
+    border-radius: 20px;
   }
   .plano{
-    @apply  bg-gradient-to-b from-gray-300 to-blue-400
-  }&li{
-    @apply bg-yellow-200
+    @apply flex flex-col items-center rounded-3xl max-w-screen-xl p-8 bg-gradient-to-b from-gray-300 to-blue-400 transition-all duration-300 hover:scale-110
   }
+  .planos div div{
+    @apply w-auto
+  }
+  .planos div h2{
+    @apply justify-center font-extrabold p-4 text-4xl 
+  }
+  .planos div div h3{
+    @apply font-medium text-3xl
+  }
+  .planos ul{
+    font-family: "Porto Roobert";
+    @apply flex flex-col list-disc pt-2 pb-4 px-8
+  }
+  .plano div{
+    font-family: "Open sans";
+    @apply flex px-4 py-4 min-h-full 
+  }
+  .plano button{
+    border-radius: 8px;
+    @apply bg-blue-500 px-6 py-2 hover:bg-blue-50 hover:shadow-2xl hover:scale-105
+  }
+  .vistoria{
+    @apply p-12
+  }
+  .vistoria button{
+    border-radius: 20px;
+    @apply flex h-24 items-center hover:shadow-2xl hover:scale-110
+  }
+
+  
 }
