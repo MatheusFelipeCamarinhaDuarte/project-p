@@ -39,11 +39,11 @@ export default function Home() {
 
       {mostrarModal && (
               <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className=" fixed modal-container bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2">
-                <button onClick={() => setMostrarModal(false)}>Fechar</button>
-                <p>Conteúdo do Modal</p>
+                <div className=" fixed modal-container bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2">
+                  <button onClick={() => setMostrarModal(false)}>Fechar</button>
+                  <p>Conteúdo do Modal</p>
+                </div>
               </div>
-            // </div>
             )}
 
       <div className='planos'>
