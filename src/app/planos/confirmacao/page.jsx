@@ -2,6 +2,13 @@ import Link from "next/link";
 
 
 export default function index() {
+    // Recuperando usuário
+    const storegeRecuperado = sessionStorage.getItem('infoUser')
+    const infoUser = JSON.parse(storegeRecuperado)
+    const nome = infoUser.nome
+    const cpf = infoUser.cpf
+    const telefone = infoUser.telefone
+
     //   // Recupere os dados do localStorage
     //   const infoUser = JSON.parse(localStorage.getItem("infoUser"));
     //   const infoBike = JSON.parse(localStorage.getItem("infoBike"));

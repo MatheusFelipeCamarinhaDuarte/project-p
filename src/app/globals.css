@@ -30,7 +30,10 @@
   }
   .botao-telas{
     font-family: 'Open Sans', sans-serif;
-    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl 
+    @apply font-extrabold text-white bg-slate-400 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl 
+  }
+  .navegacao :nth-child(2) button {
+    @apply bg-blue-600
   }
   .navegacao {
     @apply flex flex-row justify-around bg-blue-100 p-12
@@ -109,6 +112,7 @@
     @apply text-xl font-bold text-blue-800 mb-3 pt-8
   }
   .campo-form{
-    @apply w-full py-4 px-6  border-2 border-blue-500 rounded-lg
+    width: 500px;
+    @apply py-4 px-6 border-2 border-blue-500 rounded-lg
   }
 }

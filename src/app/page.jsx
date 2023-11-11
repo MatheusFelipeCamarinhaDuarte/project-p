@@ -39,11 +39,11 @@ export default function Home() {
 
       {mostrarModal && (
               <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="modal-container bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2">
+              <div className=" fixed modal-container bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2">
                 <button onClick={() => setMostrarModal(false)}>Fechar</button>
                 <p>Conteúdo do Modal</p>
               </div>
-            </div>
+            // </div>
             )}
 
       <div className='planos'>
@@ -76,8 +76,8 @@ export default function Home() {
       </div>
 
         <nav className='vistoria'>
-          <button className="botao-telas">
-            <Link className='texto-vistoria' href='/dados/cliente'>Realizar vistoria</Link>
+          <button className="botao-telas bg-blue-600">
+            <Link className='texto-vistoria' href='/login'>Realizar vistoria</Link>
           </button>
         </nav>
 
