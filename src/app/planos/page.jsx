@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from "react";
 
 
-export default function page() {
+export default function Page() {
     const storegeRecuperadoUser = sessionStorage.getItem('infoUser')
     const storegeRecuperadoBike = sessionStorage.getItem('infoBike')
     const infoUser = JSON.parse(storegeRecuperadoUser)
