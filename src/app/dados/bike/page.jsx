@@ -4,9 +4,8 @@ import { useState } from "react";
 import Image from 'next/image';
 
 
-    export default function Page() {
-
-
+export default function Page() {
+    
     const [modelo, setModelo] = useState('');
     const [numSerie, setNumSerie] = useState('');
     const [valor, setValor] = useState('');

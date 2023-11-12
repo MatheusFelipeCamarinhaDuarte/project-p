@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function Page() {
+
+
     let nomelocal = "Não encontrado"
     let cpflocal = "Não encontrado"
     const userRecuperado = localStorage.getItem('infoUser')
