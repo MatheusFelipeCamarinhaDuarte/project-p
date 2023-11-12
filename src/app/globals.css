@@ -194,6 +194,31 @@
   .sobre a:hover {
     @apply text-blue-500;
   }
-  
 
+  
+/* Fotos */
+  .fotos-superior{
+    @apply flex gap-4
+  }
+  .fotos-inferior{
+    @apply flex gap-4
+  }
+  .quadrado-fotos{
+    @apply flex flex-col items-center bg-blue-300 rounded p-12 gap-8
+  }
+  .botao-enviar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 186px;
+    @apply flex bg-blue-600 rounded text-xl justify-center p-2 shadow-lg border-b-slate-600 border-b-2 font-bold border-r-slate-500 border-r-2 transition-all duration-150 hover:scale-90 text-white
+  }
+  .campo-icone{
+    @apply flex flex-col items-center bg-blue-400 rounded-2xl p-6 gap-8
+  }
+  .campo-icone img{
+    @apply flex
+  }
+  .campo-icone p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @apply flex font-bold text-blue-800 text-3xl
+  }
 }

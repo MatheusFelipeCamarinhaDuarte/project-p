@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
+import Image from 'next/image';
+
 
     export default function Page() {
 
@@ -11,6 +13,7 @@ import { useState } from "react";
 
     function recolherDados(){
         let infoBike = {'modelo':modelo, 'numSerie':numSerie, 'valor':valor};
+
         localStorage.setItem('infoBike', JSON.stringify(infoBike));
         setModelo('')
         setNumSerie('')
@@ -40,10 +43,52 @@ import { useState } from "react";
         setMostrarFotos(false);
         setMostrarDados(true);
     } 
+
+
+
+        const [imagemQuadro, setImagemQuadro] = useState('/images/icones/bike/quadro-g.png');
+        const [imagemNumero, setImagemNumero] = useState('/images/icones/bike/numero-g.png');
+        const [imagemRodaTras, setImagemRodaTras] = useState('/images/icones/bike/roda-tras-g.png');
+        const [imagemRodaFrente, setImagemRodaFrente] = useState('/images/icones/bike/roda-frente-g.png');
+        const [imagemFontral, setImagemFontral] = useState('/images/icones/bike/frente-g.png');
+        const [imagemLateral, setImagemLateral] = useState('/images/icones/bike/lateral-g.png');
+        const [imagemTraseira, setImagemTraseira] = useState('/images/icones/bike/frente-g.png');
+        const [imagemAcessorios, setImagemAcessorios] = useState('/images/icones/bike/acessorios-g.png');
+
+        const handleImagemChange = (event) => {
+            console.log(event.target.files[0])
+            let numero = parseInt(event.target.id)
+            const file = event.target.files[0];
+                if (file) {
+                const reader = new FileReader();
+            reader.onload = () => {
+                if(numero == 1){
+                    setImagemQuadro(reader.result);
+                } else if (numero == 2){
+                    setImagemNumero(reader.result);                            
+                } else if (numero == 3){
+                    setImagemRodaTras(reader.result);
+                } else if (numero == 4){
+                    setImagemRodaFrente(reader.result);
+                } else if (numero == 5){
+                    setImagemFontral(reader.result);
+                } else if (numero == 6){
+                    setImagemLateral(reader.result);
+                } else if (numero == 7){
+                    setImagemTraseira(reader.result);
+                } else if (numero == 8){
+                    setImagemAcessorios(reader.result);
+                }
+
+                    }
+            reader.readAsDataURL(file);
+            };
+        }
+
     return (
     <main>
         {mostrarDados &&(
-        <div>
+            <div>
             <div className='fundo-pagina'>          
                 <form className="formulario">
                     <legend className="titulo-dados">Dados da Bike</legend>
@@ -82,92 +127,68 @@ import { useState } from "react";
         <div>
             <div className='fundo-pagina'>
                 <form className='formulario'>
-                    <fieldset>
-                        <legend className='titulo-fotos'>Fotos</legend>
-                        <div className='superior'>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img className='img-quadro'/> */}
-                                    {/* 100px por 80px */}
+                    <fieldset className="flex flex-col gap-4">
+                        <legend className='titulo-dados'>Fotos</legend>
+                        <div className='fotos-superior'>
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image src={imagemQuadro} alt='icone de quadro de bicicleta' width={256} height={256}/>
                                     <p>Foto do Quadro</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="1" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-num'/> */}
-                                    {/* 80px por 80px */}
+                            <nav className="quadrado-fotos">
+                                <nav  className="campo-icone">
+                                    <Image src={imagemNumero} alt='icone de quadro de bicicleta' width={256} height={256}/>
                                     <p>Nº de série</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="2" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-roda-tras'/> */}
-                                    {/* 60px por 72px */}
+                            <nav className="quadrado-fotos">
+                                <nav  className="campo-icone">
+                                    <Image className="filter grayscale" src={imagemRodaTras} alt='icone de quadro de bicicleta' width={256} height={256}/>
                                     <p>Roda traseira</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="3" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-roda-frente'/> */}
-                                    {/* 60px por 72px */}
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image className="filter grayscale" src={imagemRodaFrente} alt='icone de quadro de bicicleta' width={256} height={256}/>
                                     <p>Roda frontal</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="4" accept="image/*" onChange={handleImagemChange} />
                             </nav>
                         </div>
-                    <div className='inferior'>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img className='img-frente-tras'/> */}
-                                    {/* 70px por 72px */}
+                    <div className='fotos-inferior'>
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image src={imagemFontral} alt='icone da frente de bicicleta' width={256} height={256}/>
                                     <p>Foto frontal</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="5" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-lateral'/> */}
-                                    {/* 100px por 72px */}
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image src={imagemLateral} alt='icone da lateral de bicicleta' width={256} height={256}/>
                                     <p>Foto Lateral</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="6" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-frente-tras'/> */}
-                                    {/* 70px por 72px */}
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image src={imagemTraseira} alt='icone da frente de bicicleta' width={256} height={256}/>
                                     <p>Foto Traseira</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="7" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            <nav className="quadro">
-                                <nav>
-                                    {/* <img  className='img-acessorios'/> */}
-                                    {/* 124px por 72px */}
+                            <nav className="quadrado-fotos">
+                                <nav className="campo-icone">
+                                    <Image src={imagemAcessorios} alt='icone de pedal de bicicleta' width={256} height={256}/>
                                     <p>Acessórios</p>
                                 </nav>
-                                <button className="botao-enviar">
-                                    {/* <Link className="texto-enviar">Enviar</Link> */}
-                                </button>
+                                <input className="botao-enviar" type="file" id="8" accept="image/*" onChange={handleImagemChange} />
                             </nav>
-                            </div>
+                        </div>
                     </fieldset>
                 </form>
             </div>
@@ -177,7 +198,7 @@ import { useState } from "react";
                 </div>
                 <div>
                     <Link href='/planos'>
-                        <button  className="botao-telas">avançar</button>
+                        <button className="botao-telas">avançar</button>
                     </Link>
                 </div>
             </nav>

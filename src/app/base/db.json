@@ -1,0 +1,34 @@
+{
+    "usuarios":[
+        {
+            "id": 1,
+            "nome": "Matheus Felipe Camarinha Duarte",
+            "cpf": "440.837.228-51",
+            "telefone": "(13) 90821-9468"
+        },
+        {
+            "id": 2,
+            "nome": "Henry Medeiros",
+            "cpf": "554.349.162-37",
+            "telefone": "(22) 93734-2044"
+        },
+        {
+            "id": 3,
+            "nome": "Calvin de Moraes",
+            "cpf": "749.583.213-61",
+            "telefone": "(56) 98671-3568"
+        },
+        {
+            "id": 4,
+            "nome": "Dylan Rodrigues",
+            "cpf": "528.144.241-74",
+            "telefone": "(75) 99006-1003"
+        },
+        {
+            "id": 5,
+            "nome": "Fritz Cunha",
+            "cpf": "216.084.253-38",
+            "telefone": "(26) 91285-9398"
+        }
+    ]
+}

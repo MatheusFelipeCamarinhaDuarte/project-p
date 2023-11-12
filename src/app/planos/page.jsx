@@ -5,9 +5,8 @@ import { useState } from "react";
 
 
 export default function Page() {
-    
-    const storegeRecuperadoUser = localStorage.getItem('infoUser')
-    const storegeRecuperadoBike = localStorage.getItem('infoBike')
+    const storegeRecuperadoUser = sessionStorage.getItem('infoUser')
+    const storegeRecuperadoBike = sessionStorage.getItem('infoBike')
     const infoUser = JSON.parse(storegeRecuperadoUser)
     const infoBike = JSON.parse(storegeRecuperadoBike)
     const nome = infoUser.nome
@@ -20,7 +19,7 @@ export default function Page() {
 
 function recolherDados(){
     let planoEscolhido = {'plano':opcaoSelecionada};
-    localStorage.setItem('plano', JSON.stringify(planoEscolhido));
+    sessionStorage.setItem('plano', JSON.stringify(planoEscolhido));
     abrirConfirmacao()
 }
 
