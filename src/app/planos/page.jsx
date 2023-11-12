@@ -43,6 +43,15 @@ export default function Page() {
     }
   }
 
+  const validarFormulario = (event) => {
+    event.preventDefault();
+    if (!opcaoSelecionada) {
+      alert('Por favor, Selecione um plano.');
+    } else {
+      recolherDados(); // Coleta os dados se os campos estiverem preenchidos
+    }
+  };
+
   const abrirConfirmacao = () => {
     setMostrarConfirmacao(true);
     setMostrarPlanos(false);
