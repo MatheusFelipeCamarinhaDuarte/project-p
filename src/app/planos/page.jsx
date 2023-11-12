@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import Image from 'next/image';
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function Page() {
   const [infoUser, setInfoUser] = useState({});
@@ -10,30 +10,38 @@ export default function Page() {
   const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(true);
   const [mostrarCerteza, setMostrarCerteza] = useState(false);
+  const [plano, setPlano] = useState(null);
 
   useEffect(() => {
-    const storegeRecuperadoUser = sessionStorage.getItem('infoUser');
-    const storegeRecuperadoBike = sessionStorage.getItem('infoBike');
-    if (storegeRecuperadoUser && storegeRecuperadoBike) {
-      setInfoUser(JSON.parse(storegeRecuperadoUser));
-      setInfoBike(JSON.parse(storegeRecuperadoBike));
+    const storedPlano = sessionStorage.getItem('plano');
+    if (storedPlano) {
+      setPlano(JSON.parse(storedPlano));
+    }
+
+    const storedInfoUser = localStorage.getItem('infoUser');
+    const storedInfoBike = localStorage.getItem('infoBike');
+    if (storedInfoUser && storedInfoBike) {
+      setInfoUser(JSON.parse(storedInfoUser));
+      setInfoBike(JSON.parse(storedInfoBike));
     }
   }, []);
 
-  function recolherDados() {
-    let planoEscolhido = { 'plano': opcaoSelecionada };
-    sessionStorage.setItem('plano', JSON.stringify(planoEscolhido));
-    abrirConfirmacao();
-  }
+  useEffect(() => {
+    localStorage.setItem('infoUser', JSON.stringify(infoUser));
+  }, [infoUser]);
 
-  const validarFormulario = (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    localStorage.setItem('infoBike', JSON.stringify(infoBike));
+  }, [infoBike]);
+
+  function recolherDados() {
     if (!opcaoSelecionada) {
       alert('Por favor, Selecione um plano.');
     } else {
-      recolherDados(); // Coleta os dados se os campos estiverem preenchidos
+      setPlano({ plano: opcaoSelecionada });
+      abrirConfirmacao();
     }
-  };
+  }
 
   const abrirConfirmacao = () => {
     setMostrarConfirmacao(true);
@@ -48,12 +56,10 @@ export default function Page() {
   const abrirCerteza = () => {
     setMostrarCerteza(true);
   };
-  const fecharCerteza = () => {
-    setMostrarCerteza(false);
-  };
 
-  const enviarDados = (event) => {
-    event.preventDefault();
+
+
+  const enviarDados = () => {
     abrirCerteza();
   };
 
