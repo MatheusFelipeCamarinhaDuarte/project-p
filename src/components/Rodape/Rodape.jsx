@@ -15,12 +15,12 @@ export default function Rodape() {
                     </div>
                 </div>
                 <div className="text-white p-8 justify-end">
-                    <h1 className="p-4 text-2xl">Nos siga em nossas redes</h1>
+                    <h1 className="p-4 text-2xl text-end">Nos siga em nossas redes</h1>
                     <div className="flex flex-row gap-3 p-4 justify-end">
-                        <Link target="_blank" href="" className="hover:bg-slate-700"><Image src="/images/icones/facebook.png" alt="Icone Facebook" width={32} height={32}/></Link>
-                        <Link target="_blank" href="" className="hover:bg-slate-700"><Image src="/images/icones/instagram.png" alt="Icone Instagram" width={32} height={32}/></Link>
-                        <Link target="_blank" href="" className="hover:bg-slate-700"><Image src="/images/icones/youtube.png" alt="Icone Youtube" width={32} height={32}/></Link>
-                        <Link target="_blank" href="" className="hover:bg-slate-700"><Image src="/images/icones/twitter.png" alt="Icone Twitter" width={32} height={32}/></Link>
+                        <Link target="_blank" href="https://www.facebook.com/" className="hover:bg-slate-700"><Image src="/images/icones/facebook.png" alt="Icone Facebook" width={32} height={32}/></Link>
+                        <Link target="_blank" href="https://www.instagram.com/" className="hover:bg-slate-700"><Image src="/images/icones/instagram.png" alt="Icone Instagram" width={32} height={32}/></Link>
+                        <Link target="_blank" href="https://www.youtube.com/" className="hover:bg-slate-700"><Image src="/images/icones/youtube.png" alt="Icone Youtube" width={32} height={32}/></Link>
+                        <Link target="_blank" href="https://twitter.com/home" className="hover:bg-slate-700"><Image src="/images/icones/twitter.png" alt="Icone Twitter" width={32} height={32}/></Link>
                     </div>
                 </div>
             </nav>

@@ -5,22 +5,22 @@ import { useState } from "react";
 
 
 
-export function atualizar(){
 
-    let recuperado = sessionStorage.getItem("conectado")
-    let login = JSON.parse(recuperado)
-    let conectado = login.login
-    if (conectado){
-        setStringDeEmail('ver perfil')
-        setUrl('/login/perfil')
-    } else {
-        setStringDeEmail('Realizar login')
-        setUrl('/login')
-    }
-}
 export default function Cabecalho() {
-    const [stringDeEmail, setStringDeEmail] = useState('Realizar login')
-    const [url, setUrl] = useState('/login')
+    // const [stringDeEmail, setStringDeEmail] = useState('Realizar login')
+    // const [url, setUrl] = useState('/login')
+    // let recuperado = sessionStorage.getItem("conectado")
+    // if (recuperado){
+    //     let login = JSON.parse(recuperado)
+    //     let conectado = login.login
+    //     if (conectado){
+    //         setStringDeEmail('ver perfil')
+    //         setUrl('/login/perfil')
+    //     } else {
+    //         setStringDeEmail('Realizar login')
+    //         setUrl('/login')
+    //     }
+    // }
 
 
     return (
@@ -33,7 +33,7 @@ export default function Cabecalho() {
                 <div className="cabecalho-links">
                     <Link className="link-cabecalho" href="/"><span>Home</span></Link>
                     <Link className="link-cabecalho" href="/sobre"><span>Sobre nós</span></Link>
-                    <Link className="link-cabecalho" onClick={atualizar} href={url}><span>{stringDeEmail}</span></Link>
+                    <Link className="link-cabecalho" href="/login"><span>Perfil</span></Link>
                 </div>
             </nav>
         </header>
