@@ -3,19 +3,19 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function Page() {
-    let nomeSession = "Não encontrado"
-    let cpfSession = "Não encontrado"
-    const userRecuperado = sessionStorage.getItem('infoUser')
+    let nomelocal = "Não encontrado"
+    let cpflocal = "Não encontrado"
+    const userRecuperado = localStorage.getItem('infoUser')
     if (userRecuperado){
         const user = JSON.parse(userRecuperado)
-        nomeSession = user.nome
-        cpfSession = user.cpf
+        nomelocal = user.nome
+        cpflocal = user.cpf
     }
     
     function conteudoBike(){
-        const bikeRecuperada = sessionStorage.getItem('infoBike')
-        if (bikeRecuperada){
-            const planoRecuperado = sessionStorage.getItem('plano')
+        const bikeRecuperada = localStorage.getItem('infoBike')
+        const planoRecuperado = localStorage.getItem('plano')
+        if (bikeRecuperada && planoRecuperado){
             const plano = JSON.parse(planoRecuperado)
             const selecionado = plano.plano
             const bike = JSON.parse(bikeRecuperada)
@@ -60,8 +60,8 @@ export default function Page() {
     function recolherDados(){
         let infoUser = {'nome':nome, 'cpf':cpf};
         let conectado = {'login':true}
-        sessionStorage.setItem('infoUser', JSON.stringify(infoUser));
-        sessionStorage.setItem('conectado', JSON.stringify(conectado));
+        localStorage.setItem('infoUser', JSON.stringify(infoUser));
+        localStorage.setItem('conectado', JSON.stringify(conectado));
 
         abrirUser();
     }
@@ -86,7 +86,7 @@ export default function Page() {
         }
       };
 
-      const recuperaConect = sessionStorage.getItem('conectado')
+      const recuperaConect = localStorage.getItem('conectado')
       let login = false
         if(recuperaConect){ 
             const conexao = JSON.parse(recuperaConect)
@@ -109,7 +109,8 @@ export default function Page() {
         setMostrarPagina(true);
         setNome("")
         setCpf("")
-        sessionStorage.clear()
+
+        localStorage.clear()
       };
 
       const abrirBikes = () => {
@@ -146,8 +147,8 @@ export default function Page() {
                                         <p>Telefone: </p>
                                     </div>
                                     <div className='resposta-dados'>
-                                        <p>{nomeSession}</p>
-                                        <p>{cpfSession}</p>
+                                        <p>{nomelocal}</p>
+                                        <p>{cpflocal}</p>
                                         <p>Telefone</p>
                                     </div>
                                 </nav>

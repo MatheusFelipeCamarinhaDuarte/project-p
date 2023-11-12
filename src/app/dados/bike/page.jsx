@@ -11,7 +11,7 @@ import { useState } from "react";
 
     function recolherDados(){
         let infoBike = {'modelo':modelo, 'numSerie':numSerie, 'valor':valor};
-        sessionStorage.setItem('infoBike', JSON.stringify(infoBike));
+        localStorage.setItem('infoBike', JSON.stringify(infoBike));
         setModelo('')
         setNumSerie('')
         setValor('')

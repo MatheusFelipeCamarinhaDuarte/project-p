@@ -1,82 +1,64 @@
 "use client"
 import Link from "next/link";
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from "react";
+
 
 export default function Page() {
-  const [infoUser, setInfoUser] = useState({});
-  const [infoBike, setInfoBike] = useState({});
-  const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
-  const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
-  const [mostrarPlanos, setMostrarPlanos] = useState(true);
-  const [mostrarCerteza, setMostrarCerteza] = useState(false);
-  const [plano, setPlano] = useState(null);
+    
+    const storegeRecuperadoUser = localStorage.getItem('infoUser')
+    const storegeRecuperadoBike = localStorage.getItem('infoBike')
+    const infoUser = JSON.parse(storegeRecuperadoUser)
+    const infoBike = JSON.parse(storegeRecuperadoBike)
+    const nome = infoUser.nome
+    const cpf = infoUser.cpf
+    const modelo = infoBike.modelo
+    const numSerie = infoBike.numSerie
+    const valor = infoBike.valor
 
-  useEffect(() => {
-    const storedPlano = sessionStorage.getItem('plano');
-    if (storedPlano) {
-      setPlano(JSON.parse(storedPlano));
-    }
+    const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
 
-    const storedInfoUser = localStorage.getItem('infoUser');
-    const storedInfoBike = localStorage.getItem('infoBike');
-    if (storedInfoUser && storedInfoBike) {
-      setInfoUser(JSON.parse(storedInfoUser));
-      setInfoBike(JSON.parse(storedInfoBike));
-    }
-  }, []);
+function recolherDados(){
+    let planoEscolhido = {'plano':opcaoSelecionada};
+    localStorage.setItem('plano', JSON.stringify(planoEscolhido));
+    abrirConfirmacao()
+}
 
-  useEffect(() => {
-    localStorage.setItem('infoUser', JSON.stringify(infoUser));
-  }, [infoUser]);
-
-  useEffect(() => {
-    localStorage.setItem('infoBike', JSON.stringify(infoBike));
-  }, [infoBike]);
-
-  function recolherDados() {
+const validarFormulario = (event) => {
+    event.preventDefault(); 
     if (!opcaoSelecionada) {
-      alert('Por favor, Selecione um plano.');
-    } else {
-      setPlano({ plano: opcaoSelecionada });
-      abrirConfirmacao();
-    }
-  }
-
-  const validarFormulario = (event) => {
-    event.preventDefault();
-    if (!opcaoSelecionada) {
-      alert('Por favor, Selecione um plano.');
+        alert('Por favor, Selecione um plano.');
     } else {
       recolherDados(); // Coleta os dados se os campos estiverem preenchidos
+        
     }
-  };
+};
 
-  const abrirConfirmacao = () => {
-    setMostrarConfirmacao(true);
-    setMostrarPlanos(false);
-  };
+    const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
+    const [mostrarPlanos, setMostrarPlanos] = useState(true);
+    const [mostrarCerteza, setMostrarCerteza] = useState(false)
 
-  const fecharConfirmacao = () => {
-    setMostrarConfirmacao(false);
-    setMostrarPlanos(true);
-  };
+    const abrirConfirmacao = () => {
+        setMostrarConfirmacao(true);
+        setMostrarPlanos(false);
+    };
 
-  const abrirCerteza = () => {
-    setMostrarCerteza(true);
-  };
+    const fecharConfirmacao = () => {
+        setMostrarConfirmacao(false);
+        setMostrarPlanos(true);
+    };
 
+    const abrirCerteza = () => {
+        setMostrarCerteza(true)
+    }
+    const fecharCerteza = () => {
+        setMostrarCerteza(false)
+    }
 
-
-  const enviarDados = () => {
-    abrirCerteza();
-  };
-
-  const nome = infoUser.nome;
-  const cpf = infoUser.cpf;
-  const modelo = infoBike.modelo;
-  const numSerie = infoBike.numSerie;
-  const valor = infoBike.valor;
+    const enviarDados = (event) => {
+        event.preventDefault()
+        abrirCerteza()
+    }
 
     return (
 
