@@ -13,7 +13,7 @@ export default function Page() {
     function recolherDados(){
         let infoBike = {'modelo':modelo, 'numSerie':numSerie, 'valor':valor};
 
-        localStorage.setItem('infoBike', JSON.stringify(infoBike));
+        sessionStorage.setItem('infoBike', JSON.stringify(infoBike));
         setModelo('')
         setNumSerie('')
         setValor('')
@@ -53,7 +53,7 @@ export default function Page() {
         const [imagemLateral, setImagemLateral] = useState('/images/icones/bike/lateral-g.png');
         const [imagemTraseira, setImagemTraseira] = useState('/images/icones/bike/frente-g.png');
         const [imagemAcessorios, setImagemAcessorios] = useState('/images/icones/bike/acessorios-g.png');
-
+        
         const handleImagemChange = (event) => {
             console.log(event.target.files[0])
             let numero = parseInt(event.target.id)

@@ -2,20 +2,57 @@
 import Link from "next/link";
 import Image from 'next/image';
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 export default function Page() {
     const storegeRecuperadoUser = sessionStorage.getItem('infoUser')
     const storegeRecuperadoBike = sessionStorage.getItem('infoBike')
+    const storegeRecuperadoImagens = sessionStorage.getItem('imagensBike')
     const infoUser = JSON.parse(storegeRecuperadoUser)
+    const imagensBike = JSON.parse(storegeRecuperadoImagens)
     const infoBike = JSON.parse(storegeRecuperadoBike)
-    const nome = infoUser.nome
-    const cpf = infoUser.cpf
-    const modelo = infoBike.modelo
-    const numSerie = infoBike.numSerie
-    const valor = infoBike.valor
 
+    
     const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
+    const route = useRouter()
+    
+    const handleSubmit = async () => {
+        console.log(infoBike)
+        console.log(infoUser)
+        const novaBike = {
+            "id":0,
+            "modelo":infoBike.modelo,
+            "serial":infoBike.numSerie,
+            "preco":infoBike.valor,
+            "idono":infoUser.id,
+            "plano":opcaoSelecionada,
+            "imagens":imagensBike
+        }
+        console.log(novaBike)
+        const bikeJson = JSON.stringify(novaBike) 
+        console.log(bikeJson)
+        try {
+            const response = await fetch("http://localhost:3000/base/api-envio", {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json",
+                },
+                body: bikeJson,
+            });
+        const result = await response.json()
+        console.log(result)
+        route.push('/login')
+
+
+        } catch (error) {
+            console.error("Erro ao enviar dados:", error);
+        }    
+    };    
+    
+
+
+
 
 function recolherDados(){
     let planoEscolhido = {'plano':opcaoSelecionada};
@@ -50,12 +87,9 @@ const validarFormulario = (event) => {
     const abrirCerteza = () => {
         setMostrarCerteza(true)
     }
-    const fecharCerteza = () => {
-        setMostrarCerteza(false)
-    }
 
     const enviarDados = (event) => {
-        event.preventDefault()
+        handleSubmit()
         abrirCerteza()
     }
 
@@ -109,9 +143,9 @@ const validarFormulario = (event) => {
                         <h1 className='text-white'>Selecione uma opção:</h1>
                         <select id="opcaoSelecionada" className="p-2 rounded-md" onChange={(e) => setOpcaoSelecionada(e.target.value)}>
                             <option value="">Selecione...</option>
-                            <option value="Plano Essencial">Plano Essencial</option>
-                            <option value="Plano Leve">Plano Leve</option>
-                            <option value="Plano Elite">Plano Elite</option>
+                            <option value="Essencial">Plano Essencial</option>
+                            <option value="Leve">Plano Leve</option>
+                            <option value="Elite">Plano Elite</option>
                             </select>
                             </div>
                 </div>
@@ -136,25 +170,25 @@ const validarFormulario = (event) => {
                             <nav>   
                                 <div>
                                     <h3 className="text-form">Nome</h3>
-                                    <p  className="campo-form" id='idInfoNome'>{nome}</p>
+                                    <p  className="campo-form" id='idInfoNome'>{infoUser.nome}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-form">CPF</h3>
-                                    <p  className="campo-form" id='idInfoCPF'>{cpf}</p>
+                                    <p  className="campo-form" id='idInfoCPF'>{infoUser.cpf}</p>
                                 </div>
                             </nav>
                             <nav>
                                 <div>
                                     <h3 className="text-form">Modelo</h3>
-                                    <p  className="campo-form">{modelo}</p>
+                                    <p  className="campo-form">{infoBike.modelo}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-form">Nº de Série</h3>
-                                    <p  className="campo-form">{numSerie}</p>
+                                    <p  className="campo-form">{infoBike.numSerie}</p>
                                 </div>
                                 <div>
                                     <h3 className="text-form">Preço</h3>
-                                    <p  className="campo-form">{valor}</p>
+                                    <p  className="campo-form">{infoBike.valor}</p>
                                 </div>
                             </nav>
                             <nav>
@@ -184,12 +218,6 @@ const validarFormulario = (event) => {
                             <nav>
                             <p>Parabéns, sua Bike foi cadastrada!!</p>    
                             </nav>
-                            <nav>
-                            <Link href="/login">
-                                <button>Voltar ao perfil</button>
-                            </Link>
-                            </nav>
-
                         </nav>
                     </nav>
                 </div>
