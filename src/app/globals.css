@@ -5,43 +5,52 @@
 @layer components{
   /* Cabeçalho */
   .cabecalho{
-    @apply bg-gray-300 flex justify-between p-4
+    @apply bg-gray-300 flex justify-between p-4 border-b border-gray-400 shadow-md
+  }
+  .cabecalho :first-child{
+    @apply flex max-md:flex-row items-center
   }
   .cabecalho div{
-    @apply flex items-center gap-16
+    @apply flex items-center gap-16 max-lg:gap-2 max-md:flex-col max-md:items-end
   }
-  .cabecalho div span{
-    @apply gap-3
-  }
-  .cabecalho div Link{
-    @apply text-violet-500
+  .cabecalho-links {
+    font-family: "Porto Roobert";
+    @apply text-3xl underline
   }
   .cabecalho div p{
-    @apply font-serif text-blue-600
+    @apply font-serif text-blue-600 text-5xl
   }
 
 
 
  /* Páginas geral */
   .fundo-pagina{
-    @apply  flex flex-col justify-between items-center bg-blue-100
+    min-height: 500px;
+    @apply  flex flex-col justify-between items-center bg-blue-100 p-8 max-xl:p-0
   }
   .botao-telas{
     font-family: 'Open Sans', sans-serif;
-    @apply font-extrabold text-white bg-blue-600 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl
+    @apply font-extrabold text-white bg-slate-400 rounded p-3 text-4xl w-72 h-20 hover:shadow-2xl 
+  }
+  .navegacao :nth-child(2) button {
+    @apply bg-blue-600
   }
   .navegacao {
-    @apply flex 
+    @apply flex flex-row justify-around bg-blue-100 p-12
+  }
+  .navegacao div button{
+    border-radius: 20px;
+    @apply flex h-24 items-center hover:shadow-2xl transition-all duration-300 hover:scale-110 justify-center
   }
 
 
 /* Home e planos */
   .topo-topo{
-    @apply p-0
+    @apply p-0 
   }
   .topo-chamatriz{
     border-radius: 20px;
-    @apply flex flex-row flex-wrap items-center justify-between p-12 gap-12 bg-blue-200 border-t-8  xl:flex-nowrap max-xl:justify-center  border-blue-100 max-xl:rounded max-xl:border-none
+    @apply flex shadow-md flex-row flex-wrap items-center justify-between p-12 gap-12 bg-blue-200 border-t-8  xl:flex-nowrap max-xl:justify-center  border-blue-100 max-xl:rounded max-xl:border-none
   }
   .topo-chamatriz div h1{
     font-family: "Porto Roobert";
@@ -61,7 +70,7 @@
     border-radius: 20px;
   }
   .plano{
-    @apply flex flex-col items-center rounded-3xl max-w-screen-xl p-8 bg-gradient-to-b from-gray-300 to-blue-400 transition-all duration-300 hover:scale-110
+    @apply flex flex-col shadow-xl items-center rounded-3xl max-w-screen-xl p-8 bg-gradient-to-b from-gray-300 to-blue-400 transition-all duration-300 hover:scale-110
   }
   .planos div div{
     @apply w-auto
@@ -92,5 +101,124 @@
     @apply flex h-24 items-center hover:shadow-2xl transition-all duration-300 hover:scale-110
   }
 
+  /* Formularios */
+  .formulario{
+    @apply bg-blue-200 p-6 rounded-lg mt-4 max-xl:mt-12 
+  }
+  .titulo-dados{
+    @apply text-3xl font-bold mb-6 text-blue-800
+  }
+  .text-form{
+    @apply text-xl font-bold text-blue-800 mb-3 pt-8
+  }
+  .campo-form{
+    width: 500px;
+    @apply py-4 px-6 border-2 border-blue-500 rounded-lg
+  }
+  .conteiner-perfil{
+    @apply bg-blue-200 p-6 rounded shadow-lg w-11/12 max-xl:m-8 flex justify-between flex-col 
+  }
+  .sair-conta{
+    font-family:"Open sans";
+    @apply bg-red-600 rounded p-2 text-white text-xl shadow-xl transition-all duration-200 active:bg-white
+  }
+  .container-fechar{
+    @apply flex justify-end flex-row
+  }
+  .conteudo-perfil{
+    @apply flex flex-col justify-between items-center
+  }
+  .conteudo-perfil div{
+    @apply flex flex-row justify-around py-12 w-11/12 
+  }
+  .conteudo-perfil div a{
+    @apply flex w-full justify-center
+  }
+  .conteudo-perfil div button {
+    font-family: "Open sans";
+    @apply flex  bg-blue-600 w-8/12 h-20 max-w-xs rounded text-white text-3xl items-center justify-center shadow-xl
+  }
+  .topo-perfil {
+    @apply bg-blue-300 items-end justify-end p-0 py-12 w-11/12 pb-0 flex
+  }
+  .btn-alterar{
+    @apply w-8/12 justify-end flex pr-12
+  }
+  .dados-perfil-cliente{
+    font-family: "Open sans";
+    @apply flex flex-row w-11/12 justify-around text-3xl bg-blue-300 rounded p-8 font-extrabold text-blue-950  gap-8
+  }
+  .dados-perfil-cliente div{
+    @apply flex flex-col gap-8
+  }
+  .campos-dados{
+    max-width: 20%;
+    @apply flex items-end
+  }
+  .resposta-dados{
+    @apply flex 
+  }
+  .pagina-confirm{
+    @apply flex flex-col
+  }
+
+
+
+  /* Sobre */
+  .sobre {
+    @apply p-3 bg-blue-200 rounded-lg ;
+  }
   
+  .sobre h1 {
+    font-family: "Open sans";
+    @apply text-6xl font-bold text-blue-900 ;
+  }
+  
+  .sobre p {
+    @apply text-lg text-justify text-gray-600;
+  }
+  
+  .sobre ul {
+    @apply list-disc uppercase ;
+  }
+  
+  .sobre li {
+    @apply text-lg text-gray-600;
+  }
+  
+  /* Estilização para o link do GitHub */
+  .sobre a {
+    @apply text-blue-600 no-underline transition-all duration-200;
+  }
+  
+  .sobre a:hover {
+    @apply text-blue-500;
+  }
+
+  
+/* Fotos */
+  .fotos-superior{
+    @apply flex gap-4
+  }
+  .fotos-inferior{
+    @apply flex gap-4
+  }
+  .quadrado-fotos{
+    @apply flex flex-col items-center bg-blue-300 rounded p-12 gap-8
+  }
+  .botao-enviar{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 186px;
+    @apply flex bg-blue-600 rounded text-xl justify-center p-2 shadow-lg border-b-slate-600 border-b-2 font-bold border-r-slate-500 border-r-2 transition-all duration-150 hover:scale-90 text-white
+  }
+  .campo-icone{
+    @apply flex flex-col items-center bg-blue-400 rounded-2xl p-6 gap-8
+  }
+  .campo-icone img{
+    @apply flex
+  }
+  .campo-icone p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @apply flex font-bold text-blue-800 text-3xl
+  }
 }

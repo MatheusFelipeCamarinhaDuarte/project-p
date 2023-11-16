@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+RM551401 - Ana Luiza Fontes
+RM551356 - Enzo Bernardo
+RM551856 - Beatriz Fon Ehnert de Santi
+RM551416 - Macirander
+RM552295 - Matheus Felipe Camarinha Duarte
+RM98672  - Mirelly Ribeiro Azevedo
 
-## Getting Started
 
-First, run the development server:
+como usar:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+deve estar com o projeto de Java rodando para funcionar.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No sistema é possível vizualizar bikes já cadastradas, ver o andamento de suas vistorias, seus contratos, documentações e seguro.
+além disso, é possível alterar suas bikes e cadastrar novas bikes.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Alguns usuários de acesso que pode usar:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1º
+nome: Mariana costa (múltiplas bikes)
+cpf: 333.222.111-25
 
-## Learn More
+2º
+nome: Matheus Felipe (nenhuma bike)
+cpf: 440.837.228-51
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3º 
+nome: Antonio Justos (apenas 1 bike)
+cpf: 99310272074
