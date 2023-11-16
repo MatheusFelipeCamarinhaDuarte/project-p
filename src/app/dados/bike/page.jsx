@@ -10,6 +10,7 @@ export default function Page() {
     const [numSerie, setNumSerie] = useState('');
     const [valor, setValor] = useState('');
 
+
     function recolherDados(){
         let infoBike = {'modelo':modelo, 'numSerie':numSerie, 'valor':valor};
 
@@ -25,8 +26,7 @@ export default function Page() {
         if (!modelo || !numSerie || !valor) {
           alert('Por favor, preencha todos os campos da bike.');
         } else {
-            console.log("validado")
-          recolherDados(); // Coleta os dados se os campos estiverem preenchidos
+          recolherDados();
             
         }
     };
@@ -98,7 +98,7 @@ export default function Page() {
                         </fieldset>
                         <fieldset className="m-4">
                             <legend className='text-form'>Nº de Série</legend>
-                            <input className='campo-form uppercase' autocapitalize="characters" maxLength="20" type="text" name="NSerie" id="idNSerie" placeholder="Digite seu Nº Série" onChange={(e) => setNumSerie(e.target.value)} required/>
+                            <input className='campo-form uppercase' autocapitalize="characters" maxLength="20" type="number" name="NSerie" id="idNSerie" placeholder="Digite seu Nº Série" onChange={(e) => setNumSerie(e.target.value)} required/>
                         </fieldset>
                         <fieldset className="m-4">
                             <legend className="text-form">Valor</legend>

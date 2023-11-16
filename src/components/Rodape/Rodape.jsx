@@ -28,6 +28,3 @@ export default function Rodape() {
     )
 }
 
-                // <div className="cabecalho-logo">
-                //     <Image src="/images/icones/locked.png" alt="cadeado" width={50} height={50} />
-                // </div>

@@ -1,13 +1,9 @@
 "use client"
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function Page() {
-    
-    // const router = useRouter()
-    // () => router.push('/sobre')
-    
+
     const [usuariosExistentes, setUsuariosExistentes] = useState([])
     const [bike, setBike] = useState('')
     const [bikeUser, setBikeUser] = useState(null)
@@ -16,33 +12,26 @@ export default function Page() {
     const [nomeApresentado, setNomeApresentado] = useState('');
     const [cpf, setCpf] = useState('');
     const [cpfApresentado, setCpfApresentado] = useState('');
-    
-
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:3000/base/api-dados", { method: "GET" });
-                const data = await response.json();
-                setUsuariosExistentes(data.usuarios)
+
+
+                const responseCliente = await fetch("http://localhost:8080/projeto/cliente", { 
+                    method: "GET"})
+                const dataCliente = await responseCliente.json();
+            
+                setUsuariosExistentes(dataCliente)
+                console.log(dataCliente)
                 const userRecuperado = sessionStorage.getItem('infoUser')
-                const user = JSON.parse(userRecuperado)
-                setBike(data.bike)
-                console.log(user.id)
-                console.log(data.bike)
-                const bikes = []
-                for (let j = 0; j < data.bike.length; j++){
-                    if (data.bike[j].idono == user.id){
-                        
-                        console.log("add")
-                        console.log(data.bike[j])
-                        bikes.push(data.bike[j])
-                    }
+                if(userRecuperado){
+                    const user = JSON.parse(userRecuperado)
+                    
+                    setTelefone(user.telefone)
+                    setCpfApresentado(user.cpf)
+                    setNomeApresentado(user.nome)
                 }
-                setBikeUser(bikes)
-                setTelefone(user.telefone)
-                setCpfApresentado(user.cpf)
-                setNomeApresentado(user.nome)
             } catch (error) {
                 console.error("Erro ao recuperar dados:", error);
             }    
@@ -64,19 +53,17 @@ export default function Page() {
     const validarFormulario = (event) => {
         event.preventDefault(); 
         if (!nome || !cpf) {
+            console.log(usuariosExistentes, bike)
             alert('Por favor, preencha todos os campos obrigatórios.');
         } else {
-            console.log(usuariosExistentes[1].nome)
-            console.log(nome)
-            console.log(cpf)
+            
             console.log(usuariosExistentes)
+            const cpfInt = cpf.split(/[.-]/).join('');
             for ( let i = 0; i < usuariosExistentes.length; i++){
-                if (nome == usuariosExistentes[i].nome && cpf == usuariosExistentes[i].cpf){
+                if (nome == usuariosExistentes[i].nome && parseInt(cpfInt) == usuariosExistentes[i].cpf){
                     const telefone = usuariosExistentes[i].telefone
                     const id = i+1
-                    console.log("passou")
                     recolherDados(telefone, id);
-                     // Coleta os dados se os campos estiverem preenchidos
                 }
             }
             
@@ -90,68 +77,30 @@ export default function Page() {
         location.reload();
     }
     
-    function conteudoBike(){
-        if (bikeUser != null){
-            return (
-            <nav className='flex flex-col items-center'>
-                <ul className='dados-perfil-cliente flex flex-wrap'>
-                    {bikeUser.map((bicicletas) =>
-                    <li key={bicicletas.id} className='border-4 border-blue-800 rounded-xl p-2'>
-                        <p>Modelo: {bicicletas.modelo} </p>
-                        <p>Nº de Série: {bicicletas.serial}</p>
-                        <p>Preço: {bicicletas.preco}</p>
-                        <p>Plano: {bicicletas.plano}</p>
-                    </li>
-                    )}
-                </ul>        
-                <button onClick={fecharBikes}>FECHAR</button>
-            </nav>
-            )
-        } else {
-            return(
-            <nav className='dados-perfil-cliente'>
-                <div className='campos-dados'>
-                    <p>Nenhuma bicicleta encontrada</p>
-                </div>    
-                <div className='resposta-dados'>
-                    <Link href="/dados/bike">Cadastre uma bike</Link>
-                </div>    
-                <button onClick={fecharBikes}>FECHAR</button>
-            </nav>        
-        )}
-    }    
-
-
-      const recuperaConect = sessionStorage.getItem('infoUser')
-      let login = false
-        if(recuperaConect){ 
-            login = true
-        }
-
-      const [mostrarUser, setMostrarUser] = useState(login);
-      const [mostrarPagina, setMostrarPagina] = useState(!login);
-      const [mostrarBikes, setMostrarBikes] = useState(false);
-
-      const abrirUser = () => {
+    
+    
+    const recuperaConect = sessionStorage.getItem('infoUser')
+    let login = false
+    if(recuperaConect){ 
+        login = true
+    }
+    
+    const [mostrarUser, setMostrarUser] = useState(login);
+    const [mostrarPagina, setMostrarPagina] = useState(!login);
+      
+    const abrirUser = () => {
         setMostrarUser(true);
         setMostrarPagina(false);
-      };
-    
-      const fecharUser = () => {
+    };
+      
+    const fecharUser = () => {
         setMostrarUser(false);
         setMostrarPagina(true);
         setNome("")
         setCpf("")
-
         sessionStorage.clear()
-      };
+    };
 
-      const abrirBikes = () => {
-        setMostrarBikes(true);
-      }
-      const fecharBikes = () => {
-        setMostrarBikes(false);
-      } 
 
     return (
         <main>
@@ -181,14 +130,41 @@ export default function Page() {
                                     </Link>
                                 </div>
                                 <div>
-                                    <button  className='botao-perfil' onClick={abrirBikes}>Ver sua bike</button>
-                                    {mostrarBikes && (
-                                            <nav class="fixed top-0 left-0 right-0 bottom-0  w-screen h-screen bg-black bg-opacity-60">    
-                                                <div class="fixed bg-white w-3/4  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 rounded-lg">
-                                                    {conteudoBike()}
-                                                </div>
-                                            </nav>
-                                    )}
+                                    <Link href="/login/vizualizar/bike">
+                                        <button  className='botao-perfil'>Ver sua(s) bike(s)</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link href="/login/alterar">
+                                        <button  className='botao-perfil'>Alterar bike(s)</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link href="/login/deletar">
+                                        <button  className='botao-perfil'>Deletar bike(s)</button>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className='fim-perfil'>
+                                <div>
+                                <Link href="/login/vizualizar/status">
+                                    <button  className='botao-perfil'>Status da vistoria</button>
+                                </Link>
+                                </div>
+                                <div>
+                                    <Link href="/login/vizualizar/contratos">
+                                        <button  className='botao-perfil'>Ver Contratos</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link href="/login/vizualizar/documentos">
+                                        <button  className='botao-perfil'>Ver Documentações</button>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link href="/login/vizualizar/seguro">
+                                        <button  className='botao-perfil'>Ver Seguros</button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -227,7 +203,7 @@ export default function Page() {
                         </Link>
                     </div>
                     <div>
-                            <button  className="botao-telas" onClick={validarFormulario}>Entrar</button>
+                        <button  className="botao-telas" onClick={validarFormulario}>Entrar</button>
                     </div>
                 </nav>
             </div>

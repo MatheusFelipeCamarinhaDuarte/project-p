@@ -8,10 +8,9 @@ import { useRouter } from "next/navigation";
 export default function Page() {
     const storegeRecuperadoUser = sessionStorage.getItem('infoUser')
     const storegeRecuperadoBike = sessionStorage.getItem('infoBike')
-    const storegeRecuperadoImagens = sessionStorage.getItem('imagensBike')
     const infoUser = JSON.parse(storegeRecuperadoUser)
-    const imagensBike = JSON.parse(storegeRecuperadoImagens)
     const infoBike = JSON.parse(storegeRecuperadoBike)
+    const cpfInt = infoUser.cpf.split(/[.-]/).join('');
 
     
     const [opcaoSelecionada, setOpcaoSelecionada] = useState('');
@@ -21,19 +20,16 @@ export default function Page() {
         console.log(infoBike)
         console.log(infoUser)
         const novaBike = {
-            "id":0,
+            "cpfDono":parseInt(cpfInt),
             "modelo":infoBike.modelo,
-            "serial":infoBike.numSerie,
-            "preco":infoBike.valor,
-            "idono":infoUser.id,
-            "plano":opcaoSelecionada,
-            "imagens":imagensBike
+            "numSerie":parseInt(infoBike.numSerie),
+            "preco":parseInt(infoBike.valor),
         }
         console.log(novaBike)
         const bikeJson = JSON.stringify(novaBike) 
         console.log(bikeJson)
         try {
-            const response = await fetch("http://localhost:3000/base/api-envio", {
+            const response = await fetch("http://localhost:8080/projeto/bicicleta", {
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json",
@@ -65,8 +61,7 @@ const validarFormulario = (event) => {
     if (!opcaoSelecionada) {
         alert('Por favor, Selecione um plano.');
     } else {
-      recolherDados(); // Coleta os dados se os campos estiverem preenchidos
-        
+      recolherDados(); 
     }
 };
 
